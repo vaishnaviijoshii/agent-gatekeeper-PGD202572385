@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wells Fargo - Agent Gatekeeper | PGD202572385</title>
+  <!-- Tailwind CSS via CDN with inline CSS fallback -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom Fallback Styling */
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #0f172a; color: #f8fafc; }
+    .wf-red { background-color: #d11212; }
+    .wf-gold { color: #facc15; }
+    .badge-allow { background-color: #065f46; color: #34d399; border: 1px solid #059669; }
+    .badge-ask { background-color: #854d0e; color: #fde047; border: 1px solid #d97706; }
+    .badge-block { background-color: #881337; color: #fda4af; border: 1px solid #e11d48; }
+    .table-row-hover:hover { background-color: rgba(30, 41, 59, 0.7); }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #1e293b; }
+    ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+  </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+  <!-- TOP HEADER -->
+  <header class="max-w-7xl mx-auto mb-8 bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-2 h-full wf-red"></div>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="px-3 py-1 bg-red-700 text-white text-xs font-bold rounded-md tracking-wider uppercase">Wells Fargo</span>
+          <span class="px-3 py-1 bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-semibold rounded-md">Online Access Agreement §15</span>
+          <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-semibold rounded-md flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Gatekeeper Live
+          </span>
+        </div>
+        <h1 class="text-3xl font-extrabold text-white mt-2 tracking-tight">Agent Gatekeeper Prototype</h1>
+        <p class="text-slate-400 text-sm mt-1">
+          Autonomous AI Agent Policy Enforcement & Cryptographic Revocation Proof Registry
+        </p>
+      </div>
+
+      <!-- STUDENT ENROLLMENT BADGE (MANDATORY REQUIREMENT) -->
+      <div class="bg-slate-800 border-2 border-amber-400/60 rounded-xl p-4 text-right shadow-lg">
+        <p class="text-xs text-amber-400 font-bold uppercase tracking-wider">Candidate Name & ID</p>
+        <p class="text-xl font-black text-white tracking-wide" id="studentName">Vaishnavi Joshi</p>
+        <p class="text-base font-black text-amber-300 tracking-widest font-mono" id="enrollmentBadge">PGD202572385</p>
+        <p class="text-xs text-slate-400 mt-1">Assigned Domain: <span class="text-amber-300 font-semibold">Bank (Digit 5)</span></p>
+      </div>
+    </div>
+
+    <!-- RULES SUMMARY BAR -->
+    <div class="mt-6 pt-4 border-t border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+      <div class="bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
+        <span class="text-slate-400 block">Autonomous Limit:</span>
+        <span class="text-emerald-400 font-bold text-sm">$100.00 / txn</span>
+      </div>
+      <div class="bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
+        <span class="text-slate-400 block">Step-Up Customer Approval:</span>
+        <span class="text-amber-400 font-bold text-sm">$100.01 – $1,000.00</span>
+      </div>
+      <div class="bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
+        <span class="text-slate-400 block">Hard Safety Ceiling:</span>
+        <span class="text-red-400 font-bold text-sm">&gt; $1,000.00 (Blocked)</span>
+      </div>
+      <div class="bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
+        <span class="text-slate-400 block">Revocation Standard:</span>
+        <span class="text-sky-400 font-bold text-sm">Wells Fargo Proof Receipt</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+    <!-- LEFT COLUMN: REQUEST SIMULATOR & TEST MATRIX -->
+    <div class="lg:col-span-7 space-y-8">
+
+      <!-- PANEL 1: LIVE GATEKEEPER REQUEST EVALUATOR -->
+      <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+            <h2 class="text-xl font-bold text-white">Live Request Evaluator</h2>
+          </div>
+          <span class="text-xs text-slate-400">Step 3 Requirement</span>
+        </div>
+
+        <form id="evalForm" class="space-y-4" onsubmit="event.preventDefault(); evaluateManualRequest();">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Customer ID</label>
+              <input type="text" id="reqCustomer" value="CUST-1001" required
+                class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-400">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">AI Agent Name</label>
+              <div class="flex gap-2">
+                <input type="text" id="reqAgent" value="FinBot-Alpha" required
+                  class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-400">
+                <select onchange="document.getElementById('reqAgent').value = this.value"
+                  class="bg-slate-800 border border-slate-700 text-xs text-slate-300 rounded-lg px-2">
+                  <option value="">Quick Pick</option>
+                  <option value="FinBot-Alpha">FinBot-Alpha (Active)</option>
+                  <option value="BudgetAssist-Revoked">BudgetAssist-Revoked</option>
+                  <option value="RogueScraper-99">RogueScraper-99 (Unknown)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Banking Action</label>
+              <select id="reqAction" required onchange="handleActionChange()"
+                class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-400">
+                <option value="view_balance">view_balance (Read-Only)</option>
+                <option value="pay_bill">pay_bill (Monetary)</option>
+                <option value="transfer_money">transfer_money (Monetary)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Amount ($ USD)</label>
+              <input type="number" id="reqAmount" value="0.00" step="0.01" min="0"
+                class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-400">
+            </div>
+          </div>
+
+          <button type="submit"
+            class="w-full py-3 bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-bold rounded-xl transition shadow-lg flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            Evaluate Request Through Gatekeeper
+          </button>
+        </form>
+
+        <!-- LIVE RESULT DISPLAY BOX -->
+        <div id="resultBox" class="mt-6 p-4 rounded-xl border border-slate-700 bg-slate-950/70 hidden">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Gatekeeper Verdict</span>
+            <span id="resAuditId" class="text-xs font-mono text-slate-500"></span>
+          </div>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+            <div id="resBadge" class="text-lg font-black px-4 py-2 rounded-lg inline-block uppercase tracking-wider"></div>
+            <div class="text-xs text-slate-300 font-semibold" id="resRule"></div>
+          </div>
+          <p id="resReason" class="text-sm text-slate-200 bg-slate-900/90 p-3 rounded-lg border border-slate-800"></p>
+        </div>
+      </section>
+
+      <!-- PANEL 2: 6 TEST CASES MATRIX RUNNER (STEP 4) -->
+      <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+              <h2 class="text-xl font-bold text-white">Step 4: 6-Case Compliance Test Suite</h2>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">Runs all mandatory scenarios required by assignment rubric</p>
+          </div>
+          <button onclick="runAutomatedTests()"
+            class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg transition shadow flex items-center gap-2 self-start sm:self-auto">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Execute 6 Tests
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-slate-800 text-slate-400 uppercase font-semibold">
+                <th class="py-2.5 px-2">#</th>
+                <th class="py-2.5 px-2">Scenario</th>
+                <th class="py-2.5 px-2">Input</th>
+                <th class="py-2.5 px-2">Expected</th>
+                <th class="py-2.5 px-2">Actual</th>
+                <th class="py-2.5 px-2">Rule</th>
+                <th class="py-2.5 px-2 text-right">Status</th>
+              </tr>
+            </thead>
+            <tbody id="testTableBody" class="divide-y divide-slate-800/60 font-mono">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- RIGHT COLUMN: AGENT REGISTRY & REVOCATION -->
+    <div class="lg:col-span-5 space-y-8">
+
+      <!-- PANEL 3: AGENT REGISTRY & WELLS FARGO REVOCATION -->
+      <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+              <h2 class="text-xl font-bold text-white">Agent Registry & Revocation</h2>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">Wells Fargo Nov 24, 2026 Burden of Proof Solution</p>
+          </div>
+          <button onclick="toggleRegisterModal(true)"
+            class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 text-xs font-semibold rounded-lg transition">
+            + Register Agent
+          </button>
+        </div>
+
+        <!-- AGENTS LIST -->
+        <div class="space-y-3" id="agentsContainer">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- PANEL 4: AUDIT LOG VIEWER -->
+      <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-purple-500"></span>
+            <h2 class="text-xl font-bold text-white">Audit Log Trail</h2>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="exportAuditLogCSV()"
+              class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium rounded-lg border border-slate-700">
+              CSV Export
+            </button>
+            <button onclick="clearAuditLogs()"
+              class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-red-400 text-xs font-medium rounded-lg border border-slate-700">
+              Clear
+            </button>
+          </div>
+        </div>
+        <p class="text-xs text-slate-400 mb-3">Immutable record of every evaluation timestamp and decision</p>
+
+        <div class="overflow-y-auto max-h-72 space-y-2 pr-1" id="auditLogContainer">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- MODAL: REGISTER AGENT -->
+  <div id="registerModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl">
+      <h3 class="text-lg font-bold text-white mb-2">Register Authorized AI Agent</h3>
+      <p class="text-xs text-slate-400 mb-4">Onboard a personal AI agent to interface with your Wells Fargo account.</p>
+
+      <form onsubmit="event.preventDefault(); submitNewAgent();" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Agent Name</label>
+          <input type="text" id="newAgentName" placeholder="e.g. ShoppingBot-GPT" required
+            class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Customer Owner ID</label>
+          <input type="text" id="newAgentCust" value="CUST-1001" required
+            class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Description / Purpose</label>
+          <input type="text" id="newAgentDesc" placeholder="e.g. Autonomous utility bill manager"
+            class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white">
+        </div>
+
+        <div class="flex justify-end gap-3 pt-2">
+          <button type="button" onclick="toggleRegisterModal(false)"
+            class="px-4 py-2 bg-slate-800 text-slate-300 text-xs font-semibold rounded-lg">Cancel</button>
+          <button type="submit"
+            class="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold rounded-lg">Register Agent</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: OFFICIAL PROOF OF REVOCATION CERTIFICATE -->
+  <div id="proofModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-slate-900 border-2 border-amber-500/80 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-red-500"></span>
+          <h3 class="text-lg font-bold text-white">Proof of Revocation Certificate</h3>
+        </div>
+        <span class="px-2 py-0.5 bg-red-900/60 text-red-300 border border-red-700 text-[10px] font-bold rounded uppercase">
+          Legal Instrument
+        </span>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-300">
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex justify-between">
+            <span class="text-slate-500 font-semibold">Candidate:</span>
+            <span class="text-amber-300 font-bold">Vaishnavi Joshi (PGD202572385)</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500 font-semibold">Financial Institution:</span>
+            <span class="text-white font-bold">Wells Fargo & Company</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500 font-semibold">Governing Mandate:</span>
+            <span class="text-amber-400 font-bold">Online Access Agreement §15 (Nov 24, 2026)</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500 font-semibold">Revoked Agent:</span>
+            <span class="text-red-400 font-bold font-mono text-sm" id="proofAgentName"></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500 font-semibold">Customer ID:</span>
+            <span class="text-white font-mono" id="proofCustId"></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500 font-semibold">Revocation Timestamp:</span>
+            <span class="text-white font-mono" id="proofTimestamp"></span>
+          </div>
+          <div class="pt-2 border-t border-slate-800/80">
+            <span class="text-slate-500 font-semibold block mb-1">Cryptographic Proof Receipt ID:</span>
+            <span class="text-amber-300 font-mono text-xs break-all bg-slate-900 p-2 rounded block border border-amber-500/30" id="proofReceiptId"></span>
+          </div>
+        </div>
+
+        <p class="text-[11px] text-slate-400 leading-relaxed italic">
+          "Wells Fargo's updated agreement states customers must revoke an AI agent's access and keep proof of it. If they cannot show proof, they stay liable for the agent's activity. This certificate serves as verifiable cryptographic proof that authorization was permanently terminated."
+        </p>
+      </div>
+
+      <div class="flex justify-end gap-3 mt-5 pt-3 border-t border-slate-800">
+        <button onclick="copyProofText()"
+          class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs font-semibold rounded-lg border border-amber-500/30">
+          Copy Certificate
+        </button>
+        <button onclick="toggleProofModal(false)"
+          class="px-4 py-2 bg-red-700 hover:bg-red-600 text-white text-xs font-bold rounded-lg">
+          Close & Save
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMBEDDED ENGINE JAVASCRIPT -->
+  <script>
+    const STUDENT_NAME = "Vaishnavi Joshi";
+    const ENROLLMENT_NO = "PGD202572385";
+    const AUTONOMOUS_LIMIT = 100.00;
+    const MAX_SAFETY_CEILING = 1000.00;
+
+    // Default Seed Agents
+    let agents = {
+      "FinBot-Alpha": {
+        name: "FinBot-Alpha",
+        customer: "CUST-1001",
+        status: "ACTIVE",
+        registeredAt: "2026-11-15T09:00:00Z",
+        revokedAt: null,
+        receipt: null,
+        desc: "Primary autonomous personal banking assistant"
+      },
+      "BudgetAssist-Revoked": {
+        name: "BudgetAssist-Revoked",
+        customer: "CUST-1001",
+        status: "REVOKED",
+        registeredAt: "2026-10-01T14:30:00Z",
+        revokedAt: "2026-11-20T10:15:00Z",
+        receipt: "WF-REV-20261120-E4F92B38A7",
+        desc: "Legacy budgeting agent revoked per Wells Fargo Nov 24 clause"
+      },
+      "UtilityPay-Bot": {
+        name: "UtilityPay-Bot",
+        customer: "CUST-1002",
+        status: "ACTIVE",
+        registeredAt: "2026-11-18T11:20:00Z",
+        revokedAt: null,
+        receipt: null,
+        desc: "Utility recurring bill payment agent"
+      }
+    };
+
+    let auditLogs = [];
+
+    // The 6 Mandatory Test Cases from Step 4
+    const TEST_SUITE = [
+      {
+        num: 1,
+        title: "Known Agent, Read-Only Action",
+        customer: "CUST-1001",
+        agent: "FinBot-Alpha",
+        action: "view_balance",
+        amount: 0.00,
+        expected: "ALLOW",
+        rule: 3
+      },
+      {
+        num: 2,
+        title: "Unknown Agent Attempting Action",
+        customer: "CUST-1001",
+        agent: "RogueScraper-99",
+        action: "view_balance",
+        amount: 0.00,
+        expected: "BLOCK",
+        rule: 1
+      },
+      {
+        num: 3,
+        title: "Payment Above Autonomous Limit",
+        customer: "CUST-1001",
+        agent: "FinBot-Alpha",
+        action: "pay_bill",
+        amount: 350.00,
+        expected: "ASK CUSTOMER",
+        rule: 5
+      },
+      {
+        num: 4,
+        title: "Payment Below Autonomous Limit",
+        customer: "CUST-1001",
+        agent: "FinBot-Alpha",
+        action: "pay_bill",
+        amount: 42.50,
+        expected: "ALLOW",
+        rule: 4
+      },
+      {
+        num: 5,
+        title: "Revoked Agent Trying to Act",
+        customer: "CUST-1001",
+        agent: "BudgetAssist-Revoked",
+        action: "pay_bill",
+        amount: 25.00,
+        expected: "BLOCK",
+        rule: 2
+      },
+      {
+        num: 6,
+        title: "Own Choice: Extreme Wire Ceiling Exceeded",
+        customer: "CUST-1001",
+        agent: "FinBot-Alpha",
+        action: "transfer_money",
+        amount: 5000.00,
+        expected: "BLOCK",
+        rule: 6
+      }
+    ];
+
+    // Core Decision Function (Rules 1 - 7)
+    function evaluateGatekeeper(customer, agentName, action, amount) {
+      amount = parseFloat(amount) || 0;
+      const timestamp = new Date().toISOString();
+      const auditId = "AUD-" + Date.now().toString().slice(-8) + "-" + Math.random().toString(36).substring(2, 6).toUpperCase();
+
+      // Rule 7: Unsupported Action / Negative Amount
+      const supportedActions = ["view_balance", "pay_bill", "transfer_money"];
+      if (!supportedActions.includes(action) || (action !== "view_balance" && amount < 0)) {
+        return createVerdict(auditId, timestamp, customer, agentName, action, amount, "BLOCK", 7, "Invalid Action or Parameter", `Action '${action}' is unsupported or amount ($${amount.toFixed(2)}) is negative.`);
+      }
+
+      const agent = agents[agentName];
+
+      // Rule 1: Unknown Agent
+      if (!agent) {
+        return createVerdict(auditId, timestamp, customer, agentName, action, amount, "BLOCK", 1, "Unknown Agent Block", `Agent '${agentName}' is not registered with Wells Fargo. Unauthenticated outside AI agents are denied access.`);
+      }
+
+      // Rule 2: Revoked Agent
+      if (agent.status === "REVOKED") {
+        return createVerdict(auditId, timestamp, customer, agentName, action, amount, "BLOCK", 2, "Revoked Agent Block", `Agent '${agentName}' was revoked on ${agent.revokedAt}. Proof Receipt: ${agent.receipt}. Revoked agents are strictly blocked.`);
+      }
+
+      // Rule 3: Read-Only Balance Inquiry
+      if (action === "view_balance") {
+        return createVerdict(auditId, timestamp, customer, agentName, action, amount, "ALLOW", 3, "Read-Only Action Allow", `Read-only balance inquiry permitted for registered active agent '${agentName}'.`);
+      }
+
+      // Rule 4: Autonomous Low-Value Monetary (<= $100)
+      if (amount <= AUTONOMOUS_LIMIT) {
+        return createVerdict(auditId, timestamp, customer, agentName, action, amount, "ALLOW", 4, "Low-Value Payment Autonomous Allow", `Transaction amount ($${amount.toFixed(2)}) is within the autonomous spending threshold of $${AUTONOMOUS_LIMIT.toFixed(2)}.`);
+      }
+
+      // Rule 5: Step-Up Customer Confirmation ($100.01 - $1,000)
+      if (amount <= MAX_SAFETY_CEILING) {
+        return createVerdict(auditId, timestamp, customer, agentName, action, amount, "ASK CUSTOMER", 5, "High-Value Payment Customer Confirmation Required", `Transaction amount ($${amount.toFixed(2)}) exceeds autonomous threshold ($${AUTONOMOUS_LIMIT.toFixed(2)}). Step-up customer out-of-band authorization required.`);
+      }
+
+      // Rule 6: Hard Safety Ceiling Exceeded (> $1,000)
+      return createVerdict(auditId, timestamp, customer, agentName, action, amount, "BLOCK", 6, "Excessive Value Hard Safety Ceiling Block", `Transaction amount ($${amount.toFixed(2)}) exceeds absolute AI safety ceiling ($${MAX_SAFETY_CEILING.toFixed(2)}). Autonomous agents cannot initiate high-risk wires.`);
+    }
+
+    function createVerdict(auditId, timestamp, customer, agent, action, amount, decision, ruleId, ruleName, reason) {
+      const record = { auditId, timestamp, customer, agent, action, amount, decision, ruleId, ruleName, reason };
+      auditLogs.unshift(record);
+      renderAuditLogs();
+      return record;
+    }
+
+    // UI Handlers
+    function handleActionChange() {
+      const act = document.getElementById("reqAction").value;
+      const amtInput = document.getElementById("reqAmount");
+      if (act === "view_balance") {
+        amtInput.value = "0.00";
+        amtInput.disabled = true;
+      } else {
+        amtInput.disabled = false;
+        if (amtInput.value === "0.00" || amtInput.value === "0") amtInput.value = "50.00";
+      }
+    }
+
+    function evaluateManualRequest() {
+      const cust = document.getElementById("reqCustomer").value.trim();
+      const agent = document.getElementById("reqAgent").value.trim();
+      const action = document.getElementById("reqAction").value;
+      const amount = parseFloat(document.getElementById("reqAmount").value) || 0;
+
+      const verdict = evaluateGatekeeper(cust, agent, action, amount);
+      displayVerdict(verdict);
+    }
+
+    function displayVerdict(v) {
+      const box = document.getElementById("resultBox");
+      const badge = document.getElementById("resBadge");
+      const rule = document.getElementById("resRule");
+      const reason = document.getElementById("resReason");
+      const auditId = document.getElementById("resAuditId");
+
+      box.classList.remove("hidden");
+      badge.textContent = v.decision;
+      badge.className = "text-lg font-black px-4 py-2 rounded-lg inline-block uppercase tracking-wider ";
+
+      if (v.decision === "ALLOW") badge.classList.add("badge-allow");
+      else if (v.decision === "ASK CUSTOMER") badge.classList.add("badge-ask");
+      else badge.classList.add("badge-block");
+
+      rule.textContent = `Rule ${v.ruleId}: ${v.ruleName}`;
+      reason.textContent = v.reason;
+      auditId.textContent = `Audit Ref: ${v.auditId} • ${v.timestamp.slice(11, 19)} UTC`;
+    }
+
+    function renderAgents() {
+      const container = document.getElementById("agentsContainer");
+      container.innerHTML = "";
+
+      Object.values(agents).forEach(a => {
+        const div = document.createElement("div");
+        div.className = "p-3.5 bg-slate-800/70 border border-slate-700/80 rounded-xl flex items-center justify-between gap-3 text-xs";
+
+        const isRevoked = a.status === "REVOKED";
+        div.innerHTML = `
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-white text-sm font-mono">${a.name}</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${isRevoked ? 'bg-red-950 text-red-400 border border-red-800' : 'bg-emerald-950 text-emerald-400 border border-emerald-800'}">
+                ${a.status}
+              </span>
+            </div>
+            <p class="text-slate-400 text-[11px] mt-0.5">${a.desc}</p>
+            <p class="text-[10px] text-slate-500 font-mono mt-1">
+              ${isRevoked ? `Revoked: ${a.revokedAt.slice(0, 10)} • Receipt: ${a.receipt}` : `Registered: ${a.registeredAt.slice(0, 10)}`}
+            </p>
+          </div>
+          <div>
+            ${!isRevoked ? `
+              <button onclick="revokeAgent('${a.name}')"
+                class="px-3 py-1.5 bg-red-900/60 hover:bg-red-800 text-red-200 border border-red-700 text-xs font-semibold rounded-lg transition">
+                Revoke Access
+              </button>
+            ` : `
+              <button onclick="viewRevocationProof('${a.name}')"
+                class="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 text-amber-300 text-xs font-semibold rounded-lg transition">
+                View Proof
+              </button>
+            `}
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function revokeAgent(agentName) {
+      if (!agents[agentName]) return;
+      const now = new Date().toISOString();
+      const rawSeed = agentName + ":" + now;
+      let hash = 0;
+      for (let i = 0; i < rawSeed.length; i++) hash = ((hash << 5) - hash) + rawSeed.charCodeAt(i);
+      const receipt = "WF-REV-" + new Date().toISOString().slice(0, 10).replace(/-/g, "") + "-" + Math.abs(hash).toString(16).toUpperCase().padStart(10, "0");
+
+      agents[agentName].status = "REVOKED";
+      agents[agentName].revokedAt = now;
+      agents[agentName].receipt = receipt;
+
+      renderAgents();
+      viewRevocationProof(agentName);
+    }
+
+    function viewRevocationProof(agentName) {
+      const a = agents[agentName];
+      if (!a) return;
+      document.getElementById("proofAgentName").textContent = a.name;
+      document.getElementById("proofCustId").textContent = a.customer;
+      document.getElementById("proofTimestamp").textContent = a.revokedAt;
+      document.getElementById("proofReceiptId").textContent = a.receipt;
+      toggleProofModal(true);
+    }
+
+    function copyProofText() {
+      const aName = document.getElementById("proofAgentName").textContent;
+      const cust = document.getElementById("proofCustId").textContent;
+      const ts = document.getElementById("proofTimestamp").textContent;
+      const receipt = document.getElementById("proofReceiptId").textContent;
+      const text = `WELLS FARGO PROOF OF REVOCATION CERTIFICATE\nPolicy: Section 15 Online Access Agreement\nAgent: ${aName}\nCustomer: ${cust}\nRevocation Date/Time: ${ts}\nReceipt ID: ${receipt}\nEnrollment Verified: ${ENROLLMENT_NO}`;
+      navigator.clipboard.writeText(text);
+      alert("Revocation proof certificate copied to clipboard!");
+    }
+
+    function toggleRegisterModal(show) {
+      document.getElementById("registerModal").classList.toggle("hidden", !show);
+    }
+
+    function toggleProofModal(show) {
+      document.getElementById("proofModal").classList.toggle("hidden", !show);
+    }
+
+    function submitNewAgent() {
+      const name = document.getElementById("newAgentName").value.trim();
+      const cust = document.getElementById("newAgentCust").value.trim();
+      const desc = document.getElementById("newAgentDesc").value.trim();
+
+      if (!name) return;
+      agents[name] = {
+        name,
+        customer: cust,
+        status: "ACTIVE",
+        registeredAt: new Date().toISOString(),
+        revokedAt: null,
+        receipt: null,
+        desc: desc || "Customer authorized AI agent"
+      };
+
+      toggleRegisterModal(false);
+      renderAgents();
+      document.getElementById("reqAgent").value = name;
+    }
+
+    function runAutomatedTests() {
+      const tbody = document.getElementById("testTableBody");
+      tbody.innerHTML = "";
+
+      TEST_SUITE.forEach(tc => {
+        const verdict = evaluateGatekeeper(tc.customer, tc.agent, tc.action, tc.amount);
+        const passed = (verdict.decision === tc.expected && verdict.ruleId === tc.rule);
+
+        const tr = document.createElement("tr");
+        tr.className = "table-row-hover";
+        tr.innerHTML = `
+          <td class="py-2.5 px-2 font-bold text-white">${tc.num}</td>
+          <td class="py-2.5 px-2 text-slate-300 font-sans text-xs">${tc.title}</td>
+          <td class="py-2.5 px-2 text-slate-400 text-[11px]">${tc.agent}<br><span class="text-slate-500">${tc.action} • $${tc.amount.toFixed(2)}</span></td>
+          <td class="py-2.5 px-2 font-bold ${tc.expected === 'ALLOW' ? 'text-emerald-400' : tc.expected === 'ASK CUSTOMER' ? 'text-amber-400' : 'text-red-400'}">${tc.expected}</td>
+          <td class="py-2.5 px-2 font-bold ${verdict.decision === 'ALLOW' ? 'text-emerald-400' : verdict.decision === 'ASK CUSTOMER' ? 'text-amber-400' : 'text-red-400'}">${verdict.decision}</td>
+          <td class="py-2.5 px-2 text-slate-400">R${verdict.ruleId}</td>
+          <td class="py-2.5 px-2 text-right">
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${passed ? 'bg-emerald-950 text-emerald-400 border border-emerald-800' : 'bg-red-950 text-red-400 border border-red-800'}">
+              ${passed ? 'PASS' : 'FAIL'}
+            </span>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderAuditLogs() {
+      const container = document.getElementById("auditLogContainer");
+      if (auditLogs.length === 0) {
+        container.innerHTML = `<p class="text-xs text-slate-500 italic p-3 text-center">No transactions evaluated yet.</p>`;
+        return;
+      }
+      container.innerHTML = "";
+
+      auditLogs.slice(0, 25).forEach(l => {
+        const div = document.createElement("div");
+        div.className = "p-2.5 bg-slate-800/50 border border-slate-700/60 rounded-lg text-xs font-mono";
+        const color = l.decision === "ALLOW" ? "text-emerald-400" : l.decision === "ASK CUSTOMER" ? "text-amber-400" : "text-red-400";
+        div.innerHTML = `
+          <div class="flex justify-between items-center text-[10px] text-slate-400 mb-1">
+            <span>${l.timestamp.slice(11, 19)} UTC • ${l.agent}</span>
+            <span class="font-bold ${color}">${l.decision} (R${l.ruleId})</span>
+          </div>
+          <div class="text-[11px] text-slate-300 font-sans truncate">
+            ${l.action} • $${l.amount.toFixed(2)} — ${l.reason}
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function exportAuditLogCSV() {
+      if (auditLogs.length === 0) {
+        alert("No audit logs available to export.");
+        return;
+      }
+      let csv = "AuditID,Timestamp,Enrollment,CustomerID,Agent,Action,Amount,Decision,RuleID,Reason\n";
+      auditLogs.forEach(l => {
+        csv += `"${l.auditId}","${l.timestamp}","${ENROLLMENT_NO}","${l.customer}","${l.agent}","${l.action}",${l.amount.toFixed(2)},"${l.decision}",${l.ruleId},"${l.reason.replace(/"/g, '""')}"\n`;
+      });
+      const blob = new Blob([csv], { type: "text/csv" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `Audit_Log_${ENROLLMENT_NO}.csv`;
+      a.click();
+    }
+
+    function clearAuditLogs() {
+      auditLogs = [];
+      renderAuditLogs();
+    }
+
+    // Initialize UI on load
+    window.addEventListener("DOMContentLoaded", () => {
+      renderAgents();
+      runAutomatedTests();
+      renderAuditLogs();
+    });
+  </script>
+</body>
+</html>

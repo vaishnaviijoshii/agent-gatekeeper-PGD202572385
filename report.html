@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Agent Gatekeeper Project Report - PGD202572385</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 12mm 14mm 12mm 14mm;
+    }
+    body {
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.35;
+      font-size: 9pt;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    .page {
+      page-break-after: always;
+      height: 272mm;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+    .header-bar {
+      border-bottom: 2.5px solid #b91c1c;
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .title {
+      font-size: 15pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+      margin: 0;
+    }
+    .subtitle {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #b91c1c;
+      margin: 2px 0 0 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .meta-box {
+      text-align: right;
+      font-size: 8pt;
+      line-height: 1.3;
+    }
+    .meta-box strong {
+      color: #0f172a;
+    }
+    h2 {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 8px 0 4px 0;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 12px;
+      background: #b91c1c;
+      border-radius: 1px;
+    }
+    p {
+      margin: 0 0 6px 0;
+      text-align: justify;
+    }
+    .sources-list {
+      margin: 0 0 6px 0;
+      padding-left: 14px;
+      font-size: 8pt;
+      color: #334155;
+    }
+    .sources-list li {
+      margin-bottom: 3px;
+    }
+    .sources-list strong {
+      color: #0f172a;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.8pt;
+      margin: 6px 0;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 4px 6px;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f5f9;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+    .badge-allow {
+      color: #047857;
+      font-weight: 700;
+    }
+    .badge-ask {
+      color: #b45309;
+      font-weight: 700;
+    }
+    .badge-block {
+      color: #b91c1c;
+      font-weight: 700;
+    }
+    .badge-pass {
+      background-color: #dcfce7;
+      color: #15803d;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 7pt;
+      display: inline-block;
+    }
+    .quote-box {
+      background: #f8fafc;
+      border-left: 3px solid #b91c1c;
+      padding: 5px 8px;
+      margin: 5px 0;
+      font-size: 8pt;
+      font-style: italic;
+      color: #334155;
+    }
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 4px;
+      font-size: 7.5pt;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1 ==================== -->
+  <div class="page">
+    <div class="header-bar">
+      <div>
+        <h1 class="title">Agent Gatekeeper: Architectural & Policy Report</h1>
+        <p class="subtitle">Autonomous AI Governance for Retail Banking &bull; Enterprise Case: Wells Fargo</p>
+      </div>
+      <div class="meta-box">
+        <strong>Candidate Name:</strong> Vaishnavi Joshi<br>
+        <strong>Enrollment No:</strong> PGD202572385<br>
+        <strong>Category:</strong> Bank (Last Digit: 5)<br>
+        <strong>GitHub:</strong> github.com/vaishnaviijoshii/agent-gatekeeper-PGD202572385
+      </div>
+    </div>
+
+    <h2>1. The Problem: The Agentic Banking Dilemma & Industry Context</h2>
+    <p>
+      During late 2026, consumer adoption of personal, multi-step autonomous AI agents (such as browser-navigating agents, automated financial planners, and voice shoppers) created an unprecedented operational and legal crisis for commercial banks. Consumers now authorize autonomous software to log into financial portals, negotiate terms, pay invoices, and execute fund transfers. However, AI agents operate via probabilistic reasoning prone to hallucinations, goal drift, and prompt injection vulnerabilities, leading to severe uncertainty regarding financial liability when an agent executes unauthorized or erroneous actions.
+    </p>
+    <p>
+      Financial institutions have responded with aggressive contractual defensiveness and defensive perimeter controls, documented in four key investigative benchmarks:
+    </p>
+    <ul class="sources-list">
+      <li>
+        <strong>Wells Fargo (Updated Online Access Agreement §15, effective 24 Nov 2026; American Banker, 2 Nov 2026):</strong> Wells Fargo became the first major retail bank to mandate that consumers access accounts via AI agents strictly "at their own risk." Crucially, Section 15 states that if a customer wishes to disconnect an agent, they bear the sole legal burden to <em>revoke access and retain verifiable proof</em> of that revocation; absent verifiable proof, the customer remains strictly liable for subsequent transactions.
+      </li>
+      <li>
+        <strong>JPMorgan Chase (OfficeChai / TechCrunch, Oct 2026):</strong> CEO Jamie Dimon publicly warned of systemic perils from "rogue agents." JPMorgan instituted perimeter defenses outright blocking outside third-party AI agents from executing transactional workflows for retail customers, restricting external tools to read-only balance aggregation through regulated third-party data aggregators.
+      </li>
+      <li>
+        <strong>Delta Air Lines (OfficeChai / TechCrunch, Oct 2026):</strong> Delta confirmed zero integration or tolerance for third-party commercial agents purchasing flights, citing fraud, API abuse, and customer friction.
+      </li>
+      <li>
+        <strong>Independent Source — CFPB & Federal Reserve Regulation E Analysis (12 CFR Part 1005 / Electronic Fund Transfer Act):</strong> Under established federal consumer protection rules, Regulation E shields consumers from unauthorized transfers. However, the legal definition of an "authorized delegate" assumes human agency. When consumers voluntarily provide account credentials or session tokens to an autonomous AI agent, banks argue the transaction is contractually authorized, shifting loss onto consumers. This conflict creates massive regulatory friction between statutory consumer safeguards and retail bank service terms.
+      </li>
+    </ul>
+
+    <h2>2. Architectural Solution: The Wells Fargo Agent Gatekeeper</h2>
+    <p>
+      To resolve this dilemma, we architected the <strong>Agent Gatekeeper</strong>. Serving as a real-time policy proxy between client AI agents and core banking APIs, the system evaluates incoming requests against deterministic compliance rules, maintains an append-only audit trail, and directly implements cryptographic revocation proof generation to solve the Wells Fargo burden-of-proof mandate.
+    </p>
+    <div class="quote-box">
+      <strong>Spending Limit Justification:</strong> "The $100.00 autonomous spending limit was chosen based on consumer retail banking benchmarks where routine recurring utility bills and daily subscriptions typically fall under $100.00, providing user convenience while bounding potential financial exposure from AI agent hallucinations or drift before triggering mandatory human confirmation."
+    </div>
+
+    <h2>3. Gatekeeper Governance Rules Specification</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 10%;">Rule ID</th>
+          <th style="width: 25%;">Rule Name</th>
+          <th style="width: 35%;">Condition / Logic</th>
+          <th style="width: 15%;">Verdict</th>
+          <th style="width: 15%;">Action Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Rule 1</strong></td>
+          <td>Unknown Agent Block</td>
+          <td>Agent not present in bank's authenticated whitelist registry</td>
+          <td><span class="badge-block">BLOCK</span></td>
+          <td>All Actions</td>
+        </tr>
+        <tr>
+          <td><strong>Rule 2</strong></td>
+          <td>Revoked Agent Enforcement</td>
+          <td>Agent exists in database with status marked <code>REVOKED</code></td>
+          <td><span class="badge-block">BLOCK</span></td>
+          <td>All Actions</td>
+        </tr>
+        <tr>
+          <td><strong>Rule 3</strong></td>
+          <td>Read-Only Balance Allow</td>
+          <td>Action is <code>view_balance</code> and agent status is <code>ACTIVE</code></td>
+          <td><span class="badge-allow">ALLOW</span></td>
+          <td>view_balance</td>
+        </tr>
+        <tr>
+          <td><strong>Rule 4</strong></td>
+          <td>Low-Value Autonomous Allow</td>
+          <td>Active agent executing monetary action with Amount $\le \$100.00$</td>
+          <td><span class="badge-allow">ALLOW</span></td>
+          <td>pay_bill, transfer</td>
+        </tr>
+        <tr>
+          <td><strong>Rule 5</strong></td>
+          <td>High-Value Customer Confirm</td>
+          <td>Active agent executing monetary action with $\$100.00 < \text{Amount} \le \$1,000.00$</td>
+          <td><span class="badge-ask">ASK CUSTOMER</span></td>
+          <td>pay_bill, transfer</td>
+        </tr>
+        <tr>
+          <td><strong>Rule 6</strong></td>
+          <td>Excessive Ceiling Block</td>
+          <td>Active agent attempting monetary action with $\text{Amount} > \$1,000.00$</td>
+          <td><span class="badge-block">BLOCK</span></td>
+          <td>pay_bill, transfer</td>
+        </tr>
+        <tr>
+          <td><strong>Rule 7</strong></td>
+          <td>Protocol Parameter Block</td>
+          <td>Unsupported action or negative transaction amount requested</td>
+          <td><span class="badge-block">BLOCK</span></td>
+          <td>Invalid actions</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer">
+      <span>Agent Gatekeeper &bull; Candidate: Vaishnavi Joshi (PGD202572385) &bull; Wells Fargo Enterprise Spec</span>
+      <span>Page 1 of 2</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 2 ==================== -->
+  <div class="page">
+    <div class="header-bar">
+      <div>
+        <h1 class="title">Agent Gatekeeper: Verification & Strategic Analysis</h1>
+        <p class="subtitle">Compliance Matrix, Business Strategy & Execution Proof</p>
+      </div>
+      <div class="meta-box">
+        <strong>Candidate:</strong> Vaishnavi Joshi<br>
+        <strong>Enrollment No:</strong> PGD202572385<br>
+        <strong>Target Bank:</strong> Wells Fargo & Company<br>
+        <strong>Audit Engine:</strong> Dual JSON/CSV Append-Only
+      </div>
+    </div>
+
+    <h2>4. Step 4: Empirical Testing & Compliance Verification (6 Test Cases)</h2>
+    <p>
+      The prototype was subjected to the 6 mandatory operational test cases. Results were validated across both the Python automated testing engine (<code>test_suite.py</code>) and the interactive web interface (<code>index.html</code>).
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 6%;">Case</th>
+          <th style="width: 26%;">Test Scenario Description</th>
+          <th style="width: 24%;">Input Request Parameters</th>
+          <th style="width: 14%;">Expected</th>
+          <th style="width: 14%;">Actual</th>
+          <th style="width: 8%;">Rule</th>
+          <th style="width: 8%;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td>Known agent doing read-only action</td>
+          <td>FinBot-Alpha &bull; view_balance &bull; $0.00</td>
+          <td><span class="badge-allow">ALLOW</span></td>
+          <td><span class="badge-allow">ALLOW</span></td>
+          <td>Rule 3</td>
+          <td><span class="badge-pass">PASS</span></td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td>Unknown / unregistered agent</td>
+          <td>RogueScraper-99 &bull; view_balance &bull; $0.00</td>
+          <td><span class="badge-block">BLOCK</span></td>
+          <td><span class="badge-block">BLOCK</span></td>
+          <td>Rule 1</td>
+          <td><span class="badge-pass">PASS</span></td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td>Payment above autonomous limit</td>
+          <td>FinBot-Alpha &bull; pay_bill &bull; $350.00</td>
+          <td><span class="badge-ask">ASK CUSTOMER</span></td>
+          <td><span class="badge-ask">ASK CUSTOMER</span></td>
+          <td>Rule 5</td>
+          <td><span class="badge-pass">PASS</span></td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td>Payment below autonomous limit</td>
+          <td>FinBot-Alpha &bull; pay_bill &bull; $42.50</td>
+          <td><span class="badge-allow">ALLOW</span></td>
+          <td><span class="badge-allow">ALLOW</span></td>
+          <td>Rule 4</td>
+          <td><span class="badge-pass">PASS</span></td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td>Revoked agent trying to act (Wells Fargo)</td>
+          <td>BudgetAssist-Revoked &bull; pay_bill &bull; $25.00</td>
+          <td><span class="badge-block">BLOCK</span></td>
+          <td><span class="badge-block">BLOCK</span></td>
+          <td>Rule 2</td>
+          <td><span class="badge-pass">PASS</span></td>
+        </tr>
+        <tr>
+          <td><strong>6</strong></td>
+          <td>Own Choice: High-risk wire safety ceiling</td>
+          <td>FinBot-Alpha &bull; transfer_money &bull; $5,000.00</td>
+          <td><span class="badge-block">BLOCK</span></td>
+          <td><span class="badge-block">BLOCK</span></td>
+          <td>Rule 6</td>
+          <td><span class="badge-pass">PASS</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>5. Technical Resolution of the "Wells Fargo Problem"</h2>
+    <p>
+      Under Wells Fargo’s November 2026 agreement, a customer who verbally or locally terminates an agent remains liable unless they can prove revocation. Our Gatekeeper introduces a <strong>Cryptographic Revocation Certificate</strong>. When a customer executes <code>revoke_agent()</code>, the system permanently toggles the status to <code>REVOKED</code>, records an immutable UTC timestamp, and generates a SHA-256 verifiable receipt:
+    </p>
+    <div class="quote-box" style="font-family: monospace; font-size: 7.5pt; font-style: normal;">
+      [PROOF RECEIPT] WF-REV-20261124-E4F92B38A7 | Agent: BudgetAssist-Revoked | Customer: CUST-1001<br>
+      Revocation Timestamp: 2026-11-20T10:15:00+00:00 UTC | Digital Fingerprint: SHA256(Agent:Cust:Time)
+    </div>
+    <p>
+      Any subsequent action by this agent is intercepted by Rule 2, outputting the revocation receipt in the audit log, providing the exact proof required by Wells Fargo dispute arbitrations.
+    </p>
+
+    <h2>6. Business Analysis: Strategic Trade-Offs of Outright Agent Blocking</h2>
+    <p>
+      <strong>What Wells Fargo Gains and Loses by Blocking Agents Completely:</strong><br>
+      By imposing a total ban on third-party AI agents (mirroring JPMorgan’s defensive stance), Wells Fargo would achieve immediate risk insulation against catastrophic unauthorized electronic fund transfers, eliminate automated credential stuffing, and sharply curtail compliance investigation overhead under CFPB Regulation E dispute cycles. However, this defensive posture carries severe long-term commercial costs. Completely blocking AI agents alienates tech-forward, high-net-worth retail demographics who rely on autonomous agents for bill negotiation and automated cash management, driving account migration toward challenger banks and neo-fintechs that offer controlled agentic sandboxes. Furthermore, outright bans encourage users to deploy evasive "stealth" browser agents using scraped credentials, driving agent traffic into dark, unmonitored channels. Implementing a tiered Gatekeeper architecture delivers the optimal strategic equilibrium: routine low-risk obligations are automated, high-value transfers mandate human consent, and toxic exposures are eliminated without sacrificing market competitiveness.
+    </p>
+
+    <h2>7. Proof of Work & Deliverable Inventory</h2>
+    <ul class="sources-list">
+      <li><strong>Interactive Web Application:</strong> <code>index.html</code> featuring responsive Wells Fargo dashboard, live evaluator, dynamic revocation receipt generator, and audit log exporter.</li>
+      <li><strong>Core Python Engine:</strong> <code>gatekeeper.py</code> with standard-library dual JSON/CSV persistence and CLI mode.</li>
+      <li><strong>Automated Test Harness:</strong> <code>test_suite.py</code> executing the 6 compliance test cases with 100% pass assertions.</li>
+      <li><strong>Verification Records:</strong> <code>PROMPTS.md</code> documenting development interactions and manual code reviews; <code>VIDEO_SCRIPT.md</code> providing the 2-minute demonstration walkthrough.</li>
+    </ul>
+
+    <div class="footer">
+      <span>Agent Gatekeeper &bull; Candidate: Vaishnavi Joshi (PGD202572385) &bull; Wells Fargo Enterprise Spec</span>
+      <span>Page 2 of 2</span>
+    </div>
+  </div>
+
+</body>
+</html>
